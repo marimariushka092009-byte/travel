@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auravia — Luxury Travel</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Inter,sans-serif;
+background:#06070b;
+color:#fff;
+overflow-x:hidden;
+}
+body::-webkit-scrollbar{width:10px}
+body::-webkit-scrollbar-thumb{background:#d5a85e;border-radius:20px}
+
+.bg{
+position:fixed;
+inset:0;
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.65)),
+url(travel.jpg) center/cover;
+z-index:-4;
+transform:scale(1.08);
+animation:bgzoom 18s ease-in-out infinite alternate;
+}
+@keyframes bgzoom{
+from{transform:scale(1.05)}
+to{transform:scale(1.15)}
+}
+
+.overlay{
+position:fixed;
+inset:0;
+background:radial-gradient(circle at top right,#e8b46a30,transparent 40%),
+radial-gradient(circle at bottom left,#5c7cff20,transparent 35%);
+z-index:-3;
+}
+
+.glow,.glow2,.glow3{
+position:fixed;
+border-radius:50%;
+filter:blur(80px);
+opacity:.35;
+animation:float 12s ease-in-out infinite;
+z-index:-2;
+}
+.glow{
+width:300px;height:300px;
+background:#e8b46a;
+top:80px;right:80px;
+}
+.glow2{
+width:260px;height:260px;
+background:#4f6fff;
+left:50px;bottom:100px;
+animation-delay:2s;
+}
+.glow3{
+width:220px;height:220px;
+background:#ff5f7a;
+left:40%;
+top:40%;
+animation-delay:4s;
+}
+@keyframes float{
+50%{transform:translateY(-30px) translateX(20px)}
+}
+
+nav{
+position:fixed;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+width:min(1200px,92%);
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:16px 24px;
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.08);
+border-radius:999px;
+z-index:100;
+}
+.logo{
+font-family:"Cormorant Garamond",serif;
+font-size:32px;
+letter-spacing:1px;
+}
+nav a{
+text-decoration:none;
+color:#fff;
+margin-left:20px;
+opacity:.72;
+transition:.3s;
+font-size:14px;
+}
+nav a:hover{
+opacity:1;
+color:#e8b46a;
+}
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:0 20px;
+position:relative;
+}
+.hero-inner{
+max-width:950px;
+animation:fadeUp 1.2s ease forwards;
+}
+.kicker{
+display:inline-block;
+padding:8px 16px;
+border:1px solid rgba(255,255,255,.14);
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(12px);
+border-radius:999px;
+font-size:13px;
+letter-spacing:.4px;
+margin-bottom:28px;
+}
+.hero h1{
+font-family:"Cormorant Garamond",serif;
+font-size:clamp(60px,10vw,130px);
+line-height:.95;
+font-weight:600;
+letter-spacing:-2px;
+text-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+.hero p{
+margin:26px auto 0;
+max-width:680px;
+font-size:18px;
+line-height:1.8;
+opacity:.78;
+}
+.cta{
+display:flex;
+gap:16px;
+justify-content:center;
+margin-top:36px;
+flex-wrap:wrap;
+}
+.btn{
+padding:15px 28px;
+border:none;
+border-radius:999px;
+cursor:pointer;
+font-weight:600;
+font-size:14px;
+transition:.35s;
+}
+.primary{
+background:linear-gradient(135deg,#f2c57a,#d79a47);
+color:#111;
+box-shadow:0 20px 50px rgba(215,154,71,.35);
+}
+.primary:hover{transform:translateY(-4px) scale(1.02)}
+.secondary{
+background:rgba(255,255,255,.08);
+color:#fff;
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(14px);
+}
+.secondary:hover{
+transform:translateY(-4px);
+background:rgba(255,255,255,.12);
+}
+
+.stats{
+width:min(1200px,92%);
+margin:-70px auto 0;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:22px;
+position:relative;
+z-index:5;
+}
+.stat{
+padding:28px;
+border-radius:28px;
+background:rgba(255,255,255,.07);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.08);
+box-shadow:0 25px 60px rgba(0,0,0,.25);
+transition:.4s;
+}
+.stat:hover{
+transform:translateY(-8px);
+border-color:#d79a47;
+}
+.stat h2{
+font-size:42px;
+color:#f2c57a;
+margin-bottom:10px;
+}
+.stat p{opacity:.7}
+
+.section{
+width:min(1200px,92%);
+margin:120px auto;
+display:grid;
+grid-template-columns:1.1fr .9fr;
+gap:50px;
+align-items:center;
+}
+.text h2{
+font-family:"Cormorant Garamond",serif;
+font-size:62px;
+line-height:1;
+margin-bottom:20px;
+}
+.text p{
+opacity:.75;
+line-height:1.9;
+font-size:17px;
+}
+.card-image{
+height:520px;
+border-radius:34px;
+background:
+linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.35)),
+url(travel2.jpg) center/cover;
+box-shadow:0 35px 80px rgba(0,0,0,.35);
+transition:1s;
+}
+.card-image:hover{
+transform:scale(1.02);
+}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(40px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+@media(max-width:900px){
+.stats{grid-template-columns:1fr}
+.section{grid-template-columns:1fr}
+.hero h1{font-size:64px}
+.text h2{font-size:44px}
+}
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+<div class="overlay"></div>
+<div class="glow"></div>
+<div class="glow2"></div>
+<div class="glow3"></div>
+
+<nav>
+<div class="logo">Auravia</div>
+<div>
+<a href="index.html">Home</a>
+<a href="trips.html">Trips</a>
+<a href="explore.html">Explore</a>
+<a href="book.html">Book</a>
+</div>
+</nav>
+
+<section class="hero">
+<div class="hero-inner">
+<div class="kicker">Luxury journeys crafted beyond expectation</div>
+<h1>Travel Like<br>Never Before</h1>
+<p>
+Immersive destinations, bespoke private tours and unforgettable luxury escapes built for travelers who expect more than ordinary.
+</p>
+<div class="cta">
+<button class="btn primary">Start Journey</button>
+<button class="btn secondary">Explore Destinations</button>
+</div>
+</div>
+</section>
+
+<section class="stats">
+<div class="stat">
+<h2>120+</h2>
+<p>Luxury Destinations</p>
+</div>
+<div class="stat">
+<h2>3.5k</h2>
+<p>Happy Travelers</p>
+</div>
+<div class="stat">
+<h2>24/7</h2>
+<p>Premium Concierge</p>
+</div>
+</section>
+
+<section class="section">
+<div class="text">
+<h2>Designed For Extraordinary Moments</h2>
+<p>
+Every itinerary is curated with precision — from elite stays and private aviation to hidden destinations few ever experience. Auravia transforms travel into art.
+</p>
+</div>
+<div class="card-image"></div>
+</section>
+
+</body>
+</html>

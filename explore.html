@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auravia — Explore</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Inter,sans-serif;
+background:#05060a;
+color:#fff;
+overflow-x:hidden;
+}
+.bg{
+position:fixed;
+inset:0;
+background:
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.78)),
+url(exp.jpg) center/cover;
+z-index:-5;
+transform:scale(1.08);
+animation:bgzoom 20s ease-in-out infinite alternate;
+}
+@keyframes bgzoom{
+from{transform:scale(1.05)}
+to{transform:scale(1.15)}
+}
+
+.glow,.glow2,.glow3{
+position:fixed;
+border-radius:50%;
+filter:blur(90px);
+opacity:.28;
+animation:float 14s ease-in-out infinite;
+z-index:-3;
+}
+.glow{
+width:320px;height:320px;
+background:#e8b46a;
+right:60px;top:120px;
+}
+.glow2{
+width:280px;height:280px;
+background:#4f6fff;
+left:70px;bottom:120px;
+animation-delay:2s;
+}
+.glow3{
+width:220px;height:220px;
+background:#ff6e8b;
+left:45%;top:45%;
+animation-delay:4s;
+}
+@keyframes float{
+50%{transform:translateY(-30px) translateX(20px)}
+}
+
+nav{
+position:fixed;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+width:min(1200px,92%);
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:16px 24px;
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.08);
+border-radius:999px;
+z-index:100;
+}
+.logo{
+font-family:"Cormorant Garamond",serif;
+font-size:32px;
+}
+nav a{
+text-decoration:none;
+color:#fff;
+margin-left:20px;
+opacity:.72;
+transition:.3s;
+font-size:14px;
+}
+nav a:hover{
+opacity:1;
+color:#e8b46a;
+}
+
+.hero{
+padding:180px 20px 70px;
+text-align:center;
+}
+.hero h1{
+font-family:"Cormorant Garamond",serif;
+font-size:clamp(58px,8vw,110px);
+line-height:.95;
+margin-bottom:18px;
+animation:fadeUp 1s ease forwards;
+}
+.hero p{
+max-width:760px;
+margin:auto;
+opacity:.78;
+line-height:1.9;
+font-size:17px;
+animation:fadeUp 1.3s ease forwards;
+}
+
+.destinations{
+width:min(1250px,92%);
+margin:40px auto 120px;
+display:grid;
+grid-template-columns:1.1fr .9fr;
+gap:28px;
+}
+
+.stack{
+display:grid;
+gap:28px;
+}
+
+.card{
+position:relative;
+min-height:320px;
+border-radius:34px;
+overflow:hidden;
+box-shadow:0 35px 80px rgba(0,0,0,.35);
+transition:.55s;
+}
+.card:hover{
+transform:translateY(-12px) scale(1.015);
+}
+.card img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:1.2s;
+}
+.card:hover img{
+transform:scale(1.08);
+}
+.card::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(to top,rgba(0,0,0,.88),rgba(0,0,0,.1));
+}
+.info{
+position:absolute;
+left:28px;
+right:28px;
+bottom:28px;
+z-index:3;
+}
+.info span{
+display:inline-block;
+padding:7px 14px;
+border-radius:999px;
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(14px);
+font-size:12px;
+margin-bottom:14px;
+}
+.info h3{
+font-family:"Cormorant Garamond",serif;
+font-size:48px;
+margin-bottom:8px;
+}
+.info p{
+opacity:.82;
+line-height:1.7;
+}
+
+.tall{min-height:670px}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(40px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+@media(max-width:950px){
+.destinations{grid-template-columns:1fr}
+.tall{min-height:360px}
+.info h3{font-size:38px}
+}
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+<div class="glow"></div>
+<div class="glow2"></div>
+<div class="glow3"></div>
+
+<nav>
+<div class="logo">Auravia</div>
+<div>
+<a href="index.html">Home</a>
+<a href="trips.html">Trips</a>
+<a href="explore.html">Explore</a>
+<a href="book.html">Book</a>
+</div>
+</nav>
+
+<section class="hero">
+<h1>Discover Extraordinary</h1>
+<p>
+Explore breathtaking destinations crafted for unforgettable moments — oceans, mountains, skylines and hidden escapes waiting beyond ordinary travel.
+</p>
+</section>
+
+<section class="destinations">
+
+<div class="card tall">
+<img src="mald.jpg">
+<div class="info">
+<span>Tropical Luxury</span>
+<h3>Maldives</h3>
+<p>Crystal waters, private villas and world-class island serenity.</p>
+</div>
+</div>
+
+<div class="stack">
+
+<div class="card">
+<img src="sweet.jpg">
+<div class="info">
+<span>Alpine Escape</span>
+<h3>Switzerland</h3>
+<p>Elite mountain retreats and panoramic luxury experiences.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1400&q=80">
+<div class="info">
+<span>Modern Prestige</span>
+<h3>Dubai</h3>
+<p>Skyline glamour, desert luxury and iconic experiences.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+</body>
+</html>

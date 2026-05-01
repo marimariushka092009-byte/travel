@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auravia — Book</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Inter,sans-serif;
+background:#05060a;
+color:#fff;
+overflow-x:hidden;
+}
+.bg{
+position:fixed;
+inset:0;
+background:
+linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.78)),
+url(map.jpg) center/cover;
+z-index:-5;
+transform:scale(1.08);
+animation:bgzoom 18s ease-in-out infinite alternate;
+}
+@keyframes bgzoom{
+from{transform:scale(1.05)}
+to{transform:scale(1.15)}
+}
+
+.glow,.glow2,.glow3{
+position:fixed;
+border-radius:50%;
+filter:blur(90px);
+opacity:.28;
+animation:float 14s ease-in-out infinite;
+z-index:-3;
+}
+.glow{
+width:320px;height:320px;
+background:#e8b46a;
+right:60px;top:120px;
+}
+.glow2{
+width:280px;height:280px;
+background:#4f6fff;
+left:70px;bottom:120px;
+animation-delay:2s;
+}
+.glow3{
+width:220px;height:220px;
+background:#ff6e8b;
+left:45%;top:45%;
+animation-delay:4s;
+}
+@keyframes float{
+50%{transform:translateY(-30px) translateX(20px)}
+}
+
+nav{
+position:fixed;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+width:min(1200px,92%);
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:16px 24px;
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.08);
+border-radius:999px;
+z-index:100;
+}
+.logo{
+font-family:"Cormorant Garamond",serif;
+font-size:32px;
+}
+nav a{
+text-decoration:none;
+color:#fff;
+margin-left:20px;
+opacity:.72;
+transition:.3s;
+font-size:14px;
+}
+nav a:hover{
+opacity:1;
+color:#e8b46a;
+}
+
+.wrap{
+min-height:100vh;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
+width:min(1200px,92%);
+margin:auto;
+padding:140px 0 80px;
+}
+
+.left h1{
+font-family:"Cormorant Garamond",serif;
+font-size:clamp(58px,8vw,110px);
+line-height:.95;
+margin-bottom:20px;
+animation:fadeUp 1s ease forwards;
+}
+.left p{
+max-width:520px;
+opacity:.78;
+line-height:1.9;
+font-size:17px;
+animation:fadeUp 1.3s ease forwards;
+}
+
+.form-box{
+padding:34px;
+border-radius:34px;
+background:rgba(255,255,255,.07);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,.08);
+box-shadow:0 35px 80px rgba(0,0,0,.35);
+animation:fadeUp 1.2s ease forwards;
+}
+
+.row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:16px;
+}
+input,select{
+width:100%;
+padding:16px 18px;
+margin-bottom:16px;
+border:none;
+outline:none;
+border-radius:16px;
+background:rgba(255,255,255,.08);
+color:#fff;
+font-size:14px;
+}
+input::placeholder{color:rgba(255,255,255,.6)}
+button{
+width:100%;
+padding:16px;
+border:none;
+border-radius:999px;
+font-weight:700;
+cursor:pointer;
+font-size:15px;
+background:linear-gradient(135deg,#f2c57a,#d79a47);
+color:#111;
+box-shadow:0 20px 50px rgba(215,154,71,.35);
+transition:.35s;
+}
+button:hover{
+transform:translateY(-4px);
+}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(40px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+@media(max-width:950px){
+.wrap{
+grid-template-columns:1fr;
+padding-top:160px;
+}
+.row{
+grid-template-columns:1fr;
+}
+.left h1{
+font-size:64px;
+}
+}
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+<div class="glow"></div>
+<div class="glow2"></div>
+<div class="glow3"></div>
+
+<nav>
+<div class="logo">Auravia</div>
+<div>
+<a href="index.html">Home</a>
+<a href="trips.html">Trips</a>
+<a href="explore.html">Explore</a>
+<a href="book.html">Book</a>
+</div>
+</nav>
+
+<section class="wrap">
+
+<div class="left">
+<h1>Reserve Your Escape</h1>
+<p>
+Plan your next extraordinary journey with Auravia. Personalized itineraries, luxury stays and premium experiences crafted around you.
+</p>
+</div>
+
+<div class="form-box">
+<div class="row">
+<input type="text" placeholder="First Name">
+<input type="text" placeholder="Last Name">
+</div>
+
+<input type="email" placeholder="Email Address">
+
+<div class="row">
+<input type="date">
+<select>
+<option>Destination</option>
+<option>Maldives</option>
+<option>Bali</option>
+<option>Switzerland</option>
+<option>Dubai</option>
+</select>
+</div>
+
+<div class="row">
+<input type="number" placeholder="Guests">
+<input type="text" placeholder="Budget">
+</div>
+
+<button>Book Premium Experience</button>
+</div>
+
+</section>
+
+</body>
+</html>

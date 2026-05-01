@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auravia — Trips</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Inter,sans-serif;
+background:#06070b;
+color:#fff;
+overflow-x:hidden;
+}
+.bg{
+position:fixed;
+inset:0;
+background:
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.72)),
+url(travel3.jpg) center/cover;
+z-index:-4;
+transform:scale(1.08);
+animation:bgzoom 18s ease-in-out infinite alternate;
+}
+@keyframes bgzoom{
+from{transform:scale(1.05)}
+to{transform:scale(1.14)}
+}
+
+.glow,.glow2{
+position:fixed;
+border-radius:50%;
+filter:blur(80px);
+opacity:.28;
+animation:float 12s ease-in-out infinite;
+z-index:-2;
+}
+.glow{
+width:300px;height:300px;
+background:#e8b46a;
+top:120px;right:80px;
+}
+.glow2{
+width:260px;height:260px;
+background:#4f6fff;
+left:60px;bottom:120px;
+animation-delay:2s;
+}
+@keyframes float{
+50%{transform:translateY(-25px) translateX(18px)}
+}
+
+nav{
+position:fixed;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+width:min(1200px,92%);
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:16px 24px;
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.08);
+border-radius:999px;
+z-index:100;
+}
+.logo{
+font-family:"Cormorant Garamond",serif;
+font-size:32px;
+}
+nav a{
+text-decoration:none;
+color:#fff;
+margin-left:20px;
+opacity:.72;
+transition:.3s;
+font-size:14px;
+}
+nav a:hover{
+opacity:1;
+color:#e8b46a;
+}
+
+.hero{
+padding:180px 20px 80px;
+text-align:center;
+}
+.hero h1{
+font-family:"Cormorant Garamond",serif;
+font-size:clamp(56px,8vw,100px);
+line-height:.95;
+margin-bottom:18px;
+animation:fadeUp 1s ease forwards;
+}
+.hero p{
+max-width:720px;
+margin:auto;
+opacity:.78;
+line-height:1.9;
+font-size:17px;
+animation:fadeUp 1.3s ease forwards;
+}
+
+.grid{
+width:min(1200px,92%);
+margin:40px auto 120px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:28px;
+}
+
+.card{
+position:relative;
+height:520px;
+border-radius:34px;
+overflow:hidden;
+background:#111;
+box-shadow:0 35px 80px rgba(0,0,0,.35);
+transition:.55s;
+transform:translateY(0);
+}
+.card:hover{
+transform:translateY(-14px) scale(1.02);
+}
+.card img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:1.2s;
+}
+.card:hover img{
+transform:scale(1.12);
+}
+.card::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(to top,rgba(0,0,0,.88),rgba(0,0,0,.1));
+}
+.content{
+position:absolute;
+left:28px;
+right:28px;
+bottom:28px;
+z-index:3;
+}
+.tag{
+display:inline-block;
+padding:7px 14px;
+border-radius:999px;
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(14px);
+font-size:12px;
+margin-bottom:18px;
+}
+.content h3{
+font-family:"Cormorant Garamond",serif;
+font-size:42px;
+margin-bottom:10px;
+}
+.content p{
+opacity:.8;
+line-height:1.7;
+margin-bottom:20px;
+}
+.bottom{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+}
+.price{
+font-size:20px;
+font-weight:600;
+color:#f2c57a;
+}
+.btn{
+padding:13px 22px;
+border:none;
+border-radius:999px;
+cursor:pointer;
+font-weight:600;
+background:linear-gradient(135deg,#f2c57a,#d79a47);
+color:#111;
+transition:.3s;
+}
+.btn:hover{
+transform:translateY(-3px);
+}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(40px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+@media(max-width:900px){
+.card{height:460px}
+.content h3{font-size:34px}
+}
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+<div class="glow"></div>
+<div class="glow2"></div>
+
+<nav>
+<div class="logo">Auravia</div>
+<div>
+<a href="index.html">Home</a>
+<a href="trips.html">Trips</a>
+<a href="explore.html">Explore</a>
+<a href="book.html">Book</a>
+</div>
+</nav>
+
+<section class="hero">
+<h1>Signature Journeys</h1>
+<p>
+Private escapes, breathtaking luxury destinations and unforgettable curated experiences built for travelers who seek extraordinary.
+</p>
+</section>
+
+<section class="grid">
+
+<div class="card">
+<img src="bali.jpg">
+<div class="content">
+<div class="tag">Island Escape</div>
+<h3>Bali Prestige</h3>
+<p>Private villas, oceanfront dinners and curated island experiences.</p>
+<div class="bottom">
+<div class="price">$1,950</div>
+<button class="btn">Reserve</button>
+</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1200&q=80">
+<div class="content">
+<div class="tag">European Luxury</div>
+<h3>Swiss Elite</h3>
+<p>Helicopter views, alpine retreats and luxury mountain journeys.</p>
+<div class="bottom">
+<div class="price">$3,400</div>
+<button class="btn">Reserve</button>
+</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80">
+<div class="content">
+<div class="tag">Royal Experience</div>
+<h3>Dubai Gold</h3>
+<p>Skyline suites, desert luxury and world-class premium experiences.</p>
+<div class="bottom">
+<div class="price">$2,780</div>
+<button class="btn">Reserve</button>
+</div>
+</div>
+</div>
+
+</section>
+
+</body>
+</html>
